@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Data Table Ejemplo</title>
+        </h:head>
+        <h:body>
+            <h:form id="form">    
+                <p:layout fullPage="true">       
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        Accordion Panel
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        Footer
+                    </p:layoutUnit>
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Inicio" url="welcomePrimefaces.xhtml" />
+                                <p:menuitem value="Accordion" url="accordionPanel.xhtml" />
+                                <p:menuitem value="Calculadora" url="Calculadora.xhtml" />
+                                <p:menuitem value="DataTable" url="DataTableEj.xhtml" />
+                                <p:menuitem value="Conexión" url="index.xhtml" />
+
+                            </p:submenu>
+
+                        </p:menu>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <p:growl id="msgs" showDetail="true" />
+
+                        <h3 style="margin-top:0">Puppies</h3>
+                        <p:accordionPanel>
+                            <p:tab title="Pug Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/pug.jpg" />
+                                    <h:outputText
+                                        value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Rotwailer Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/rot.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Labrador Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/lab.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+
+                        <h3>Multiple Selection</h3>
+                        <p:accordionPanel multiple="true">
+                            <p:tab title="Godfather Part I">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/pug.jpg" />
+                                    <h:outputText
+                                        value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Godfather Part II">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/rot.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Godfather Part III">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/lab.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+
+                        <h3>Change Event</h3>
+                        <p:accordionPanel>
+                            <p:ajax event="tabChange" listener="#{tabbedView.onTabChange}" update=":form:msgs" />
+                            <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" update=":form:msgs" />
+
+                            <p:tab title="Godfather Part I">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/pug.jpg" />
+                                    <h:outputText
+                                        value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Godfather Part II">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/rot.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Godfather Part III">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/lab.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+
+                        <h3>DataModel</h3>
+                        <p:accordionPanel value="#{tabbedView.cars}" var="car">
+                            <p:tab title="Car - #{car.id}">
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <f:facet name="header">
+                                        <img src="imagenes/#{car.brand}.jpg" />
+                                    </f:facet>                    
+                                    <h:outputText value="Brand:" style="font-weight: bold" />
+                                    <h:outputText value="#{car.brand}" />
+
+                                    <h:outputText value="Year:" style="font-weight: bold" />
+                                    <h:outputText value="#{car.year}" />
+
+                                    <h:outputText value="Color:" style="font-weight: bold" />
+                                    <h:outputText value="#{car.color}" />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+                    </p:layoutUnit>
+                </p:layout>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>

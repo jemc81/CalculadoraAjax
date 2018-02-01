@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <h:form id="form"> 
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        Welcome Primefaces
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        Footer
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Inicio" url="welcomePrimefaces.xhtml" />
+                                <p:menuitem value="Accordion" url="accordionPanel.xhtml" />
+                                <p:menuitem value="Calculadora" url="Calculadora.xhtml" />
+                                <p:menuitem value="DataTable" url="DataTableEj.xhtml" />
+                                <p:menuitem value="Conexión" url="index.xhtml" />
+
+                            </p:submenu>
+
+                        </p:menu>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <p:growl id="msgs" showDetail="true" />
+
+                        <h3 style="margin-top:0">Puppies</h3>
+                        <p:accordionPanel>
+                            <p:tab title="Pug Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/pug.jpg" />
+                                    <h:outputText
+                                        value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Rotwailer Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/rot.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Labrador Baby">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="imagenes/lab.jpg" />
+                                    <h:outputText value="Beatiful..." />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+                    </p:layoutUnit>
+
+                </p:layout>
+            </h:form>
+
+        </h:body>
+
+    </f:view>
+</html>
+

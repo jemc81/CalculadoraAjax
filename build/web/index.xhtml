@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Demo Conexión PF</title>
+        </h:head>
+        <h:body>
+
+            <h:form id="form"> 
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        Conexión Universe
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        Muestra Tabla Tipo de Endosos
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Inicio" url="welcomePrimefaces.xhtml" />
+                                <p:menuitem value="Accordion" url="accordionPanel.xhtml" />
+                                <p:menuitem value="Calculadora" url="Calculadora.xhtml" />
+                                <p:menuitem value="DataTable" url="DataTableEj.xhtml" />
+                                <p:menuitem value="Conexión" url="index.xhtml" />
+
+                            </p:submenu>
+
+                        </p:menu>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <p:dataTable var="tipoEnd" value="#{managedBeanObtinenInfo.tiposEndoso}">        
+                            <p:column headerText="ID_Tipo">
+                                <h:outputText value="#{tipoEnd.id}" />
+                            </p:column>
+
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{tipoEnd.descripcion}" />
+                            </p:column>
+
+                            <p:column headerText="Tipo">
+                                <h:outputText value="#{tipoEnd.tipo}" />
+                            </p:column>
+                        </p:dataTable>
+                        <p:outputLabel value="#{managedBeanObtinenInfo.msgExcepcion}"/>
+
+                    </p:layoutUnit>
+
+                </p:layout>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>

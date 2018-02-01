@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Ajax Example Basic</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <h:form id="form"> 
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        Calculadora Ajax
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        Footer
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Inicio" url="welcomePrimefaces.xhtml" />
+                                <p:menuitem value="Accordion" url="accordionPanel.xhtml" />
+                                <p:menuitem value="Calculadora" url="Calculadora.xhtml" />
+                                <p:menuitem value="DataTable" url="DataTableEj.xhtml" />
+                                <p:menuitem value="Conexión" url="index.xhtml" />
+
+                            </p:submenu>
+
+                        </p:menu>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <!--  icon="ui-icon-check" -->
+                        <h:panelGrid columns="9" cellpadding="5">
+                            <h:outputLabel for="dato1" value="Dato 1:" style="font-weight:bold" />
+                            <p:inputText id="dato1" value="#{managedBeanCalculadora.dato1}" />
+
+                            <h:outputLabel for="dato2" value="Dato 2:" style="font-weight:bold" />
+                            <p:inputText id="dato2" value="#{managedBeanCalculadora.dato2}" />
+
+                            <p:commandButton value="+" actionListener="#{managedBeanCalculadora.sumar()}" update="display"  />
+                            <p:commandButton value="-" actionListener="#{managedBeanCalculadora.restar()}" update="display" />
+                            <p:commandButton value="*" actionListener="#{managedBeanCalculadora.multiplicar()}" update="display" /> 
+                            <p:commandButton value="/" actionListener="#{managedBeanCalculadora.dividir()}" update="display" />
+
+                            <h:outputText id="display" value="#{managedBeanCalculadora.resultado}" />
+                        </h:panelGrid>
+                    </p:layoutUnit>
+
+                </p:layout>
+            </h:form>
+
+        </h:body>
+
+    </f:view>
+</html>
+
